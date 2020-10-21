@@ -133,9 +133,23 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+
+
 # Esta línea sirve para crear un directorio denominado 'media' en donde
 # se guardaran y se cargaran los documentos
 MEDIA_URL = '/media/'
 
 # Esta linea sirve para adicionar y buscar archivos cargados en la ruta
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = '/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
