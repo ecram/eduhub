@@ -26,7 +26,7 @@ class Herramienta(models.Model):
 	fotografia = models.ImageField(upload_to = 'herramienta/', 
 		default='herramienta/image.jpg',
 		help_text='Suba imágenes (jpg, gif, png).')
-	fecha_de_creacion = models.DateField('Fecha de creación', auto_now_add=True)
+	fecha_de_creacion = models.DateField(auto_now_add=True)
 	observaciones_sugerencias = models.TextField('Describa las observaciones y sugerencias', 
 		blank = True, validators=[MaxLengthValidator(1500)])
 	ocultar = models.BooleanField('Herramienta descontinuada', default=False)

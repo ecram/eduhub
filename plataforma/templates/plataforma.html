@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="es">
+<head>
+</head>
+<body>
+	<h1>Plataforma</h1>
+
+{% for entrada in entradas %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">{{ entrada.nombre }}</th>
+    </tr>
+  </thead>
+  <tbody>  	
+    <tr>
+      <td>Area</td>
+      <td>
+      	{% for a in entrada.area.all %}
+      		{{ a.nombre }}
+      	{% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td>nivel</td>
+      <td>
+      	{% for a in entrada.nivel.all %}
+      		{{ a.nombre }}
+      	{% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td>objetivo</td>
+      <td>{{ entrada.objetivo }}</td>
+    </tr>
+    <tr>
+      <td>enlace</td>
+      <td><a href="{{ entrada.objetivo }}">{{ entrada.enlace }}</a></td>
+    </tr>
+    <tr>
+      <td>fotografia</td>
+      {% if entrada.fotografia %}
+      <td><img src="{{ entrada.fotografia.url }}" width="100px"></td>
+      {% else %}
+      <td></td>
+      {% endif %}
+    </tr>
+    <tr>
+      <td>Observaciones y Sugerencias</td>
+      <td>{{ entrada.observaciones_sugerencias }}</td>
+    </tr>
+  </tbody>
+</table>
+{% endfor %}
+
+</body>
