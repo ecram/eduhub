@@ -4,4 +4,4 @@ from .models import Area
 class AreaForm(ModelForm):
     class Meta:
         model = Area
-        fields = ['nombre',]
+        fields = ['nombre', 'descripcion']

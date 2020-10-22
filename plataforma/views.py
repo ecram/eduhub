@@ -18,7 +18,7 @@ user.save()
 
 # Create your views here.
 
-#@login_required
+@login_required
 def plataforma(request):
 	entradas = Plataforma.objects.all().exclude(ocultar=True)
 	
@@ -34,3 +34,8 @@ def post_new(request):
     form = AreaForm()
     return render(request, 'post_edit.html', {'form': form})
 
+def error404(request, exception):
+	return render(request,'error404.html', status=404)
+
+def error500(request):
+	return render(request,'error500.html', status=500)
